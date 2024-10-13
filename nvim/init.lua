@@ -16,7 +16,11 @@ require("lazy").setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000
+    priority = 1000,
+    opts = { flavour = "macchiato" },
+    init = function()
+      vim.cmd.colorscheme "catppuccin"
+    end,
   },
   {
     name = "tulipe",
@@ -42,17 +46,30 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
+    },
+    opts = {
+      options = {
+        theme = "auto"
+      }
     }
   },
   {
-    "nvim-treesitter/nvim-treesitter"
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      sync_install = true,
+      auto_install = true,
+      highlight = {
+        enable = true
+      }
+    }
   },
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     dependencies = {
       "nvim-lua/plenary.nvim"
-    }
+    },
+    opts = {}
   },
   {
     "ThePrimeagen/refactoring.nvim",
@@ -60,9 +77,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("refactoring").setup()
-    end,
+    opts = {},
   }
 })
 
