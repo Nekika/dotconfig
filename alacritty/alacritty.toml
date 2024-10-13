@@ -1,0 +1,11 @@
+[shell]
+program = "/opt/homebrew/bin/tmux"
+
+[colors]
+transparent_background_colors = true
+
+
+[font]
+normal = { family = "GoMono Nerd Font Mono", style = "Regular" }
+size = 16.00
+
