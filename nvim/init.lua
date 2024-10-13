@@ -19,6 +19,13 @@ require("lazy").setup({
     priority = 1000
   },
   {
+    name = "tulipe",
+    dir = "~/Projects/tulipe/tulipe.nvim",
+    dev = true,
+    lazy = false,
+    opts = {},
+  },
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     dependencies = {
