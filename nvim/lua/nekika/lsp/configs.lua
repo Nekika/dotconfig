@@ -40,7 +40,22 @@ local configs = {
   },
   { name = "ruby_lsp" },
   { name = "svelte" },
-  { name = "ts_ls" },
+  {
+    name = "ts_ls",
+    options = {
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = os.getenv("NODE_GLOBAL_MODULES_DIR") .. "/@vue/language-server",
+            languages = { "vue" },
+          }
+        }
+      },
+      filetypes = { 'typescript', 'javascript', 'vue' },
+    }
+  },
+  { name = "volar" }
 }
 
 local function setup(config)
