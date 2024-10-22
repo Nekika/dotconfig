@@ -6,6 +6,6 @@ transparent_background_colors = true
 
 
 [font]
-normal = { family = "GoMono Nerd Font Mono", style = "Regular" }
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
 size = 16.00
 
