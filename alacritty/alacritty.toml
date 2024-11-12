@@ -1,11 +1,10 @@
-[shell]
-program = "/opt/homebrew/bin/tmux"
+[terminal.shell]
+program = "tmux"
 
 [colors]
 transparent_background_colors = true
 
-
 [font]
 normal = { family = "CommitMono Nerd Font", style = "Regular" }
-size = 16.00
+size = 14.00
 
