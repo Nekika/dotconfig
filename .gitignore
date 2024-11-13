@@ -1,6 +1,7 @@
 /*
 
 !.gitignore
+!.ripgreprc
 !alacritty/
 !fastfetch/
 !i3/
