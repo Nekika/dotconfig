@@ -38,7 +38,6 @@ local configs = {
       }
     }
   },
-  { name = "ruby_lsp" },
   { name = "svelte" },
   {
     name = "ts_ls",
