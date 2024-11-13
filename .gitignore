@@ -2,6 +2,7 @@
 
 !.gitignore
 !alacritty/
+!fastfetch/
 !i3/
 !nvim/
 !picom/
