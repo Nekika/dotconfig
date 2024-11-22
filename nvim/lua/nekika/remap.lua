@@ -21,6 +21,12 @@ vim.keymap.set('n', ']e', function() vim.diagnostic.goto_next({ severity = vim.d
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { desc = 'Go to previous diagnostic' })
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = 'Go to next diagnostic' })
 
+vim.keymap.set('n', '<leader>gst', vim.cmd.Git, { desc = 'Open fugitive' })
+vim.keymap.set('n', '<leader>gd', function() vim.cmd('Git diff') end, { desc = 'Run "git diff"' })
+vim.keymap.set('n', '<leader>glg', function() vim.cmd('Git log') end, { desc = 'Run "git log"' })
+vim.keymap.set('n', '<leader>ggl', function() vim.cmd('Git pull') end, { desc = 'Run "git pull"' })
+vim.keymap.set('n', '<leader>gp', function() vim.cmd('Git push') end, { desc = 'Run "git push"' })
+
 vim.keymap.set('n', '<leader>tc', vim.cmd.tabclose, { desc = 'Close current tab' })
 vim.keymap.set('n', '<leader>tn', vim.cmd.tabnew, { desc = 'Create new tab' })
 vim.keymap.set('n', '[t', vim.cmd.tabprevious, { desc = 'Go to previous tab' })

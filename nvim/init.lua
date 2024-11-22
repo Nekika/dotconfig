@@ -79,6 +79,10 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {},
+  },
+  {
+    "tpope/vim-fugitive",
+    opts = {},
   }
 })
 
