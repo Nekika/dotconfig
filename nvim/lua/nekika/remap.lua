@@ -22,10 +22,11 @@ vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { desc = 'G
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = 'Go to next diagnostic' })
 
 vim.keymap.set('n', '<leader>gst', vim.cmd.Git, { desc = 'Open fugitive' })
-vim.keymap.set('n', '<leader>gd', function() vim.cmd('Git diff') end, { desc = 'Run "git diff"' })
-vim.keymap.set('n', '<leader>glg', function() vim.cmd('Git log') end, { desc = 'Run "git log"' })
-vim.keymap.set('n', '<leader>ggl', function() vim.cmd('Git pull') end, { desc = 'Run "git pull"' })
-vim.keymap.set('n', '<leader>gp', function() vim.cmd('Git push') end, { desc = 'Run "git push"' })
+vim.keymap.set('n', '<leader>gb', require('nekika/git').branch, { desc = 'Lists branches' })
+vim.keymap.set('n', '<leader>gd', function() vim.cmd('Git diff') end, { desc = 'List diffs' })
+vim.keymap.set('n', '<leader>glg', function() vim.cmd('Git log') end, { desc = 'List commits' })
+vim.keymap.set('n', '<leader>ggl', function() vim.cmd('Git pull') end, { desc = 'Pull latest commits' })
+vim.keymap.set('n', '<leader>gp', function() vim.cmd('Git push') end, { desc = 'Push latest commits' })
 
 vim.keymap.set('n', '<leader>tc', vim.cmd.tabclose, { desc = 'Close current tab' })
 vim.keymap.set('n', '<leader>tn', vim.cmd.tabnew, { desc = 'Create new tab' })
