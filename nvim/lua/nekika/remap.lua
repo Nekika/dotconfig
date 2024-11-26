@@ -23,6 +23,7 @@ vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = 'G
 
 vim.keymap.set('n', '<leader>gst', vim.cmd.Git, { desc = 'Open fugitive' })
 vim.keymap.set('n', '<leader>gb', require('nekika/git').branch, { desc = 'Lists branches' })
+vim.keymap.set('n', '<leader>gco', require('nekika/git').checkout_branch, { desc = 'Checkout to new branch' })
 vim.keymap.set('n', '<leader>gd', function() vim.cmd('Git diff') end, { desc = 'List diffs' })
 vim.keymap.set('n', '<leader>glg', function() vim.cmd('Git log') end, { desc = 'List commits' })
 vim.keymap.set('n', '<leader>ggl', function() vim.cmd('Git pull') end, { desc = 'Pull latest commits' })
