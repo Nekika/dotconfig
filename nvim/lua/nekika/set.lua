@@ -1,4 +1,6 @@
 -- Editor
+vim.filetype.add({ extension = { gotmpl = 'gotmpl' } })
+
 vim.opt.relativenumber = true
 
 vim.opt.expandtab = true
