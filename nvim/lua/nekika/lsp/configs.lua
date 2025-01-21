@@ -54,7 +54,8 @@ local configs = {
       filetypes = { 'typescript', 'javascript', 'vue' },
     }
   },
-  { name = "volar" }
+  { name = "volar" },
+  { name = "zls" },
 }
 
 local function setup(config)
