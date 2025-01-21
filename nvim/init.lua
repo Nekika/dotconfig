@@ -22,13 +22,13 @@ require("lazy").setup({
       vim.cmd.colorscheme "catppuccin"
     end,
   },
-  {
-    name = "tulipe",
-    dir = "~/Projects/tulipe/tulipe.nvim",
-    dev = true,
-    lazy = false,
-    opts = {},
-  },
+  -- {
+  --   name = "tulipe",
+  --   dir = "~/Projects/tulipe/tulipe.nvim",
+  --   dev = true,
+  --   lazy = false,
+  --   opts = {},
+  -- },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
@@ -82,7 +82,6 @@ require("lazy").setup({
   },
   {
     "tpope/vim-fugitive",
-    opts = {},
   }
 })
 
