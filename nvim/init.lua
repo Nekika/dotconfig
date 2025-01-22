@@ -14,13 +14,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = { flavour = "macchiato" },
+    "rebelot/kanagawa.nvim",
+    opts = {
+      background = {
+        dark = "wave",
+        light = "lotus"
+      }
+    },
     init = function()
-      vim.cmd.colorscheme "catppuccin"
-    end,
+      vim.cmd.colorscheme "kanagawa"
+    end
   },
   -- {
   --   name = "tulipe",
