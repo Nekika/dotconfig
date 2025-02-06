@@ -2,16 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   lazy = false,
   dependencies = {
-    { "ms-jpq/coq_nvim",      branch = "coq" },
-    { "ms-jpq/coq.artifacts", branch = "artifacts" }
+    "saghen/blink.cmp",
   },
-  init = function()
-    vim.g.coq_settings = {
-      auto_start = "shut-up"
-    }
-  end,
   config = function()
-    local coq = require("coq")
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     local lspconfig = require("lspconfig")
 
     local configs = {
@@ -59,7 +53,8 @@ return {
 
     for _, config in ipairs(configs) do
       config.options = config.options or {}
-      lspconfig[config.name].setup(coq.lsp_ensure_capabilities(config.options))
+      config.capabilities = capabilities
+      lspconfig[config.name].setup(config)
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {
