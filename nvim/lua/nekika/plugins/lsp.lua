@@ -25,36 +25,44 @@ return {
         options = {
           settings = {
             Lua = {
-              diagnostics = {
-                globals = { "vim", "require" },
+              runtime = {
+                version = "LuaJIT",
               },
-            },
-          },
-        },
-      },
-      {
-        name = "ts_ls",
-        options = {
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = os.getenv("NODE_GLOBAL_MODULES_DIR") .. "/@vue/language-server",
-                languages = { "vue" },
-              }
+              diagnostics = {
+                globals = { "require", "vim" },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              telemetry = {
+                enable = false,
+              },
             }
-          },
-          filetypes = { "typescript", "javascript", "vue" },
+          }
         }
-      },
+      }, {
+      name = "ts_ls",
+      options = {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = os.getenv("NODE_GLOBAL_MODULES_DIR") .. "/@vue/language-server",
+              languages = { "vue" },
+            }
+          }
+        },
+        filetypes = { "typescript", "javascript", "vue" },
+      }
+    },
       { name = "volar" },
       { name = "zls" },
     }
 
     for _, config in ipairs(configs) do
       config.options = config.options or {}
-      config.capabilities = capabilities
-      lspconfig[config.name].setup(config)
+      config.options.capabilities = capabilities
+      lspconfig[config.name].setup(config.options)
     end
 
     vim.api.nvim_create_autocmd("LspAttach", {
