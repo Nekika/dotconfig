@@ -1,6 +1,6 @@
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>p", vim.cmd.Oil)
 
 vim.keymap.set("n", "<leader>h", vim.cmd.noh)
 
