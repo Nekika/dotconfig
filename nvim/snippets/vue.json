@@ -1,0 +1,23 @@
+{
+  "vue3-setup-ts": {
+    "prefix": "vue3-setup-ts",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "interface Props {}",
+      "",
+      "interface Emits {}",
+      "",
+      "const props = defineProps<Props>();",
+      "const emit = defineEmits<Emits>();",
+      "</script>",
+      "",
+      "<template>",
+      "\t$1",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ]
+  }
+}
