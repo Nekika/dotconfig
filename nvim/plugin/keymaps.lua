@@ -21,6 +21,8 @@ vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "G
 
 vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Open fugitive" })
 
+vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy, { desc = "Open Lazy" })
+
 vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose, { desc = "Close current tab" })
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew, { desc = "Create new tab" })
 vim.keymap.set("n", "[t", vim.cmd.tabprevious, { desc = "Go to previous tab" })
