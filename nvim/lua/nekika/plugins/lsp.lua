@@ -81,11 +81,12 @@ return {
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function(args)
-        vim.lsp.buf.format({
-          bufnr = args.buf,
-          async = false,
-          timeout_ms = 10000,
-        })
+        require("conform").format({ bufnr = args.buf })
+        -- vim.lsp.buf.format({
+        --   bufnr = args.buf,
+        --   async = false,
+        --   timeout_ms = 10000,
+        -- })
       end,
     })
   end,
