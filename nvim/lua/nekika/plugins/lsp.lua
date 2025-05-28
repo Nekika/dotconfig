@@ -25,10 +25,7 @@ return {
                                 globals = { "require", "vim" },
                             },
                             workspace = {
-                                library = vim.api.nvim_get_runtime_file(
-                                    "",
-                                    true
-                                ),
+                                library = vim.api.nvim_get_runtime_file("", true),
                             },
                             telemetry = {
                                 enable = false,
@@ -72,26 +69,16 @@ return {
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function()
-                vim.keymap.set(
-                    "n",
-                    "<C-[>",
-                    vim.lsp.buf.type_definition,
-                    { buffer = 0, desc = "Go to type definition" }
-                )
+                local function map(lhs, rhs, description, modes)
+                    modes = modes or { "n" }
+                    vim.keymap.set(modes, lhs, rhs, { buffer = 0, desc = description })
+                end
 
-                vim.keymap.set(
-                    { "i", "n" },
-                    "<F2>",
-                    vim.lsp.buf.code_action,
-                    { buffer = 0, desc = "List code actions" }
-                )
-
-                vim.keymap.set(
-                    "n",
-                    "<F6>",
-                    vim.lsp.buf.rename,
-                    { buffer = 0, desc = "Rename all references" }
-                )
+                map("gd", vim.lsp.buf.definition, "Go to definition")
+                map("gD", vim.lsp.buf.type_definition, "Go to declaration")
+                map("gt", vim.lsp.buf.type_definition, "Go to type definition")
+                map("<F2>", vim.lsp.buf.code_action, "List code actions", { "i", "n" })
+                map("<F6>", vim.lsp.buf.rename, "Rename all references")
             end,
         })
     end,
