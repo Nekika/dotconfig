@@ -40,10 +40,10 @@ return {
                     init_options = {
                         plugins = {
                             {
-                                "@vue/typescript-plugin",
+                                name = "@vue/typescript-plugin",
                                 location = os.getenv("NODE_GLOBAL_MODULES_DIR")
-                                    .. "/@vue/language-server",
-                                languages = { "vue" },
+                                    .. "/@vue/typescript-plugin",
+                                languages = { "javascript", "typescript", "vue" },
                             },
                         },
                     },
