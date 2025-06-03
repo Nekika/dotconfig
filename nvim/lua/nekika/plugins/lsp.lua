@@ -25,13 +25,20 @@ local servers = {
             },
         },
     },
-    ts_ls = {
-        init_options = {
-            plugins = {
-                {
-                    name = "@vue/typescript-plugin",
-                    location = os.getenv("NODE_GLOBAL_MODULES_DIR") .. "/@vue/typescript-plugin",
-                    languages = { "javascript", "typescript", "vue" },
+    vtsls = {
+        settings = {
+            vtsls = {
+                tsserver = {
+                    globalPlugins = {
+                        {
+                            name = "@vue/typescript-plugin",
+                            location = os.getenv("NODE_GLOBAL_MODULES_DIR")
+                                .. "/@vue/typescript-plugin",
+                            languages = { "javascript", "typescript", "vue" },
+                            configNamespace = "typescript",
+                            enableForWorkspaceTypeScriptVersions = true,
+                        },
+                    },
                 },
             },
         },
