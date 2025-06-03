@@ -1,70 +1,64 @@
+local servers = {
+    cssls = {},
+    dockerls = {},
+    elixirls = {
+        cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+    },
+    gopls = {},
+    html = {},
+    jsonls = {},
+    lua_ls = {
+        settings = {
+            Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                },
+                diagnostics = {
+                    globals = { "require", "vim" },
+                },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                telemetry = {
+                    enable = false,
+                },
+            },
+        },
+    },
+    ts_ls = {
+        init_options = {
+            plugins = {
+                {
+                    name = "@vue/typescript-plugin",
+                    location = os.getenv("NODE_GLOBAL_MODULES_DIR") .. "/@vue/typescript-plugin",
+                    languages = { "javascript", "typescript", "vue" },
+                },
+            },
+        },
+        filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+            "vue",
+        },
+    },
+    vue_ls = {},
+    zls = {},
+}
+
 return {
     "neovim/nvim-lspconfig",
+    dependencies = { "saghen/blink.cmp" },
     config = function()
-        local configs = {
-            { "cssls" },
-            { "dockerls" },
-            {
-                "elixirls",
-                {
-                    cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
-                },
-            },
-            { "gopls" },
-            { "html" },
-            { "jsonls" },
-            {
-                "lua_ls",
-                {
-                    settings = {
-                        Lua = {
-                            runtime = {
-                                version = "LuaJIT",
-                            },
-                            diagnostics = {
-                                globals = { "require", "vim" },
-                            },
-                            workspace = {
-                                library = vim.api.nvim_get_runtime_file("", true),
-                            },
-                            telemetry = {
-                                enable = false,
-                            },
-                        },
-                    },
-                },
-            },
-            {
-                "ts_ls",
-                {
-                    init_options = {
-                        plugins = {
-                            {
-                                name = "@vue/typescript-plugin",
-                                location = os.getenv("NODE_GLOBAL_MODULES_DIR")
-                                    .. "/@vue/typescript-plugin",
-                                languages = { "javascript", "typescript", "vue" },
-                            },
-                        },
-                    },
-                    filetypes = {
-                        "javascript",
-                        "javascriptreact",
-                        "javascript.jsx",
-                        "typescript",
-                        "typescriptreact",
-                        "typescript.tsx",
-                        "vue",
-                    },
-                },
-            },
-            { "vue_ls" },
-            { "zls" },
-        }
+        local blink = require("blink.cmp")
 
-        for _, config in ipairs(configs) do
-            vim.lsp.config(config[1], config[2] or {})
-            vim.lsp.enable(config[1])
+        for server, config in pairs(servers) do
+            config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+            vim.lsp.config(server, config)
+            vim.lsp.enable(server)
         end
 
         vim.api.nvim_create_autocmd("LspAttach", {
