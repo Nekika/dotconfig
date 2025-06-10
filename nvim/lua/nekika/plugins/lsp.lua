@@ -31,12 +31,12 @@ local servers = {
                 tsserver = {
                     globalPlugins = {
                         {
+                            configNamespace = "typescript",
+                            enableForWorkspaceTypeScriptVersions = true,
                             name = "@vue/typescript-plugin",
                             location = os.getenv("NODE_GLOBAL_MODULES_DIR")
                                 .. "/@vue/typescript-plugin",
-                            languages = { "javascript", "typescript", "vue" },
-                            configNamespace = "typescript",
-                            enableForWorkspaceTypeScriptVersions = true,
+                            languages = { "vue" },
                         },
                     },
                 },
