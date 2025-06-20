@@ -3,6 +3,7 @@
 !.gitignore
 !.ripgreprc
 !alacritty/
+alacritty/alacritty.toml
 !fastfetch/
 !i3/
 !nvim/
