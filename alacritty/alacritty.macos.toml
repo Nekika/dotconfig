@@ -1,5 +1,5 @@
 [terminal.shell]
-program = "tmux"
+program = "/opt/homebrew/bin/tmux"
 
 [colors]
 transparent_background_colors = true
