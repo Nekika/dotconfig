@@ -35,5 +35,5 @@ foreground = "#C8C093"
 
 [font]
 normal = { family = "CommitMono Nerd Font", style = "Regular" }
-size = 15.00
+size = 16.00
 
