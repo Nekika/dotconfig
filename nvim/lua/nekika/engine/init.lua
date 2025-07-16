@@ -20,18 +20,22 @@ function M.start(init, view, opts)
         error("view is mandatory and must be a function")
     end
 
-    if view ~= nil and type(opts) ~= "table" then
+    if opts ~= nil and type(opts) ~= "table" then
         error("options must a table")
     end
 
     opts = vim.tbl_deep_extend("force", default_start_options, opts or {})
 
     local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
+
     local win = vim.api.nvim_open_win(buf, true, opts.window)
 
     local function render(model)
         local lines = view(model)
+        vim.api.nvim_set_option_value("modifiable", true, { buf = buf })
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+        vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
     end
 
     local model = init()
