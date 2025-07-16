@@ -59,7 +59,7 @@ function M.open()
                 },
                 {
                     mode = { "n" },
-                    keys = "d",
+                    keys = "dd",
                     desc = "Delete the branch under cursor",
                     callback = function(model, context)
                         local index = context.cursor[1]
@@ -73,7 +73,7 @@ function M.open()
                 },
                 {
                     mode = { "n" },
-                    keys = "D",
+                    keys = "DD",
                     desc = "Delete the branch under cursor (force)",
                     callback = function(model, context)
                         local index = context.cursor[1]
