@@ -1,13 +1,19 @@
 {
-  "vue3-setup-ts": {
-    "prefix": "vue3-setup-ts",
+  "v3": {
+    "prefix": "v3",
+    "description": "Vue 3 SFC setup with props and emits",
     "body": [
       "<script setup lang=\"ts\">",
-      "interface Props {}",
+      "type Props = {",
+      "\t$2",
+      "};",
       "",
-      "interface Emits {}",
+      "type Emits = {",
+      "\t$3",
+      "};",
       "",
       "const props = defineProps<Props>();",
+      "",
       "const emit = defineEmits<Emits>();",
       "</script>",
       "",
@@ -15,9 +21,45 @@
       "\t$1",
       "</template>",
       "",
-      "<style scoped>",
+      "<style scoped></style>"
+    ]
+  },
+  "vue3 with props only": {
+    "prefix": "v3p",
+    "description": "Vue 3 SFC setup with props only",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "type Props = {",
+      "\t$2",
+      "};",
       "",
-      "</style>"
+      "const props = defineProps<Props>();",
+      "</script>",
+      "",
+      "<template>",
+      "\t$1",
+      "</template>",
+      "",
+      "<style scoped></style>"
+    ]
+  },
+  "vue3 with emits only": {
+    "prefix": "v3e",
+    "description": "Vue 3 SFC setup with emits only",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "type Emits = {",
+      "\t$3",
+      "};",
+      "",
+      "const emit = defineEmits<Emits>();",
+      "</script>",
+      "",
+      "<template>",
+      "\t$1",
+      "</template>",
+      "",
+      "<style scoped></style>"
     ]
   }
 }
