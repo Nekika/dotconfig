@@ -1,5 +1,5 @@
 -- Editor
-vim.filetype.add({ extension = { gotmpl = 'gotmpl' } })
+vim.filetype.add({ extension = { gotmpl = "gotmpl" } })
 
 vim.opt.background = "dark"
 
@@ -10,6 +10,8 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
 vim.opt.clipboard = "unnamed"
+
+vim.opt.winborder = "rounded"
 
 -- Netrw
 vim.g.netrw_liststyle = 1
