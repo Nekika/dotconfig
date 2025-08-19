@@ -2,7 +2,7 @@ local servers = {
     cssls = {},
     dockerls = {},
     elixirls = {
-        cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+        cmd = { os.getenv("ELIXIR_LS_HOME") .. "/build/language_server.sh" },
     },
     gopls = {},
     html = {},
