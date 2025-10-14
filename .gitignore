@@ -5,8 +5,13 @@
 !alacritty/
 alacritty/alacritty.toml
 !fastfetch/
-!i3/
+!fuzzel
+!gammastep
+!lazygit
 !nvim/
-!picom/
-!polybar/
+!pusle
+!sway
 !tmux/
+!waybar
+!wireplumber
+!yay
