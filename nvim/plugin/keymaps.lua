@@ -19,7 +19,6 @@ vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next({ severity = vim.d
 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Go to previous diagnostic" })
 vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Go to next diagnostic" })
 
-vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Open fugitive" })
 
 vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy, { desc = "Open Lazy" })
 
