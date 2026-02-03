@@ -4,6 +4,7 @@ local servers = {
     elixirls = {
         cmd = { os.getenv("ELIXIR_LS_HOME") .. "/build/language_server.sh" },
     },
+    golangci_lint_ls = {},
     gopls = {},
     html = {},
     jsonls = {},
@@ -52,6 +53,7 @@ local servers = {
             "vue",
         },
     },
+    templ = {},
     vue_ls = {},
     zls = {},
 }
