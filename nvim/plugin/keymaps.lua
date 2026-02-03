@@ -10,15 +10,20 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "[b", vim.cmd.bpreviou)
 vim.keymap.set("n", "]b", vim.cmd.bnext)
 
-vim.keymap.set("n", "[e", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end,
-  { desc = "Go to previous error" })
+vim.keymap.set("n", "[e", function()
+    vim.diagnostic.get_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Go to previous error" })
 
-vim.keymap.set("n", "]e", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end,
-  { desc = "Go to next error" })
+vim.keymap.set("n", "]e", function()
+    vim.diagnostic.get_next({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Go to next error" })
 
-vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Go to previous diagnostic" })
-vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Go to next diagnostic" })
-
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.get_prev()
+end, { desc = "Go to previous diagnostic" })
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.get_next()
+end, { desc = "Go to next diagnostic" })
 
 vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy, { desc = "Open Lazy" })
 
