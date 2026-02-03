@@ -2,11 +2,31 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
-    opts = {
-        sync_install = true,
-        auto_install = true,
-        highlight = {
-            enable = true,
-        },
-    },
+    config = function()
+        local filetypes = {
+            "css",
+            "docker",
+            "elixir",
+            "go",
+            "html",
+            "javascript",
+            "json",
+            "markdown",
+            "templ",
+            "typescript",
+            "rust",
+            "vue",
+            "yaml",
+            "zig",
+        }
+
+        require("nvim-treesitter").install(filetypes)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = filetypes,
+            callback = function()
+                vim.treesitter.start()
+            end,
+        })
+    end,
 }
