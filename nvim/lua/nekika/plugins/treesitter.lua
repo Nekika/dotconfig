@@ -1,11 +1,12 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  main = "nvim-treesitter.configs",
-  opts = {
-    sync_install = true,
-    auto_install = true,
-    highlight = {
-      enable = true
-    }
-  }
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    opts = {
+        sync_install = true,
+        auto_install = true,
+        highlight = {
+            enable = true,
+        },
+    },
 }

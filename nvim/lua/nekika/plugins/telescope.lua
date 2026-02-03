@@ -11,7 +11,6 @@ end
 
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
@@ -30,41 +29,18 @@ return {
             },
         })
 
-        vim.keymap.set(
-            "n",
-            "<leader>sf",
-            builtin.find_files,
-            { desc = "Search files" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader>sg",
-            builtin.live_grep,
-            { desc = "Search by grep" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader>sh",
-            builtin.help_tags,
-            { desc = "Search help tags" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader>si",
-            builtin.lsp_implementations,
-            { desc = "Search implementaions" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader>sr",
-            builtin.lsp_references,
-            { desc = "Search references" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader><leader>",
-            builtin.buffers,
-            { desc = "Search buffers" }
-        )
+        local function map(desc, lhs, rhs, opts)
+            opts = vim.tbl_deep_extend("keep", opts or {}, {
+                mode = "n",
+            })
+            vim.keymap.set(opts.mode, lhs, rhs, { desc = desc })
+        end
+
+        map("List buffers", "<leader><leader>", builtin.buffers)
+        map("Search files", "<leader>sf", builtin.find_files)
+        map("Search by grep", "<leader>sg", builtin.live_grep)
+        map("Search help tags", "<leader>sh", builtin.help_tags)
+        map("Search implementations", "<leader>si", builtin.lsp_implementations)
+        map("Search references", "<leader>sr", builtin.lsp_references)
     end,
 }
