@@ -1,20 +1,20 @@
-local actions = require("telescope.actions")
-local actions_state = require("telescope.actions.state")
-local builtin = require("telescope.builtin")
-
-local function edit_directory(prompt_bufnr)
-    local picker = actions_state.get_current_picker(prompt_bufnr)
-    local selection = picker:get_selection()
-    local dir, _ = string.match(selection[1], "(.*/)(.*)")
-    vim.cmd("edit! " .. dir)
-end
-
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
     config = function()
+        local actions = require("telescope.actions")
+        local actions_state = require("telescope.actions.state")
+        local builtin = require("telescope.builtin")
+
+        local function edit_directory(prompt_bufnr)
+            local picker = actions_state.get_current_picker(prompt_bufnr)
+            local selection = picker:get_selection()
+            local dir, _ = string.match(selection[1], "(.*/)(.*)")
+            vim.cmd("edit! " .. dir)
+        end
+
         require("telescope").setup({
             defaults = {
                 mappings = {
