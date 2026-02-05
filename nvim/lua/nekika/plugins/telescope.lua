@@ -27,6 +27,11 @@ return {
                     },
                 },
             },
+            pickers = {
+                find_files = {
+                    find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+                },
+            },
         })
 
         local function map(desc, lhs, rhs, opts)
