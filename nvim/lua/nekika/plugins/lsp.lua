@@ -13,15 +13,16 @@ local servers = {
             Lua = {
                 runtime = {
                     version = "LuaJIT",
-                },
-                diagnostics = {
-                    globals = { "require", "vim" },
+                    path = {
+                        "lua/?.lua",
+                        "lua/?/init.lua",
+                    },
                 },
                 workspace = {
-                    library = vim.api.nvim_get_runtime_file("", true),
-                },
-                telemetry = {
-                    enable = false,
+                    checkThirdParty = false,
+                    library = {
+                        vim.env.VIMRUNTIME,
+                    },
                 },
             },
         },
